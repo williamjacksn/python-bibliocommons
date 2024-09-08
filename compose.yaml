@@ -1,4 +1,15 @@
 services:
+  py-build:
+    entrypoint:
+      - /home/python/venv/bin/python
+      - -m
+      - build
+    image: ghcr.io/williamjacksn/bibliocommons-dev
+    init: true
+    volumes:
+      - ./:/home/python/python-bibliocommons
+    working_dir: /home/python/python-bibliocommons
+
   shell:
     entrypoint:
       - /bin/bash
