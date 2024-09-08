@@ -1,4 +1,16 @@
 services:
+  cleanup:
+    entrypoint:
+      - /bin/rm
+      - -fr
+      - dist
+      - src/bibliocommons.egg-info
+    image: ghcr.io/williamjacksn/bibliocommons-dev
+    init: true
+    volumes:
+      - ./:/home/python/python-bibliocommons
+    working_dir: /home/python/python-bibliocommons
+
   py-build:
     entrypoint:
       - /home/python/venv/bin/python
