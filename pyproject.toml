@@ -8,6 +8,7 @@ description = "Python client library to interface with BiblioCommons library sys
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "cssselect",
     "httpx",
     "lxml"
 ]

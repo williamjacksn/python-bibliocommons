@@ -12,6 +12,8 @@ certifi==2024.8.30
     # via
     #   httpcore
     #   httpx
+cssselect==1.2.0
+    # via -r requirements.in
 h11==0.14.0
     # via httpcore
 httpcore==1.0.5
