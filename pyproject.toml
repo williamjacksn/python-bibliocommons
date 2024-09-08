@@ -10,6 +10,10 @@ name = "bibliocommons"
 description = "Python client library to interface with BiblioCommons library systems"
 readme = "README.md"
 requires-python = ">=3.9"
+dependencies = [
+    "httpx",
+    "lxml"
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
