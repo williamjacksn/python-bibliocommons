@@ -6,7 +6,7 @@
 #
 anyio==4.6.0
     # via httpx
-build==1.2.2
+build==1.2.2.post1
     # via -r requirements.in
 certifi==2024.8.30
     # via
