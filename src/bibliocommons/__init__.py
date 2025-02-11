@@ -1,7 +1,19 @@
 __version__ = '2024.1'
 
+import dataclasses
+import datetime
 import httpx
 import lxml.html
+
+
+@dataclasses.dataclass
+class LibraryLoan:
+    item_id: str
+    title: str
+    subtitle: str
+    medium: str
+    due: datetime.date
+    renewable: bool
 
 
 class BiblioCommonsClient:
@@ -41,3 +53,19 @@ class BiblioCommonsClient:
         checkouts.raise_for_status()
         response = checkouts.json()
         return response
+
+    @property
+    def loans(self) -> list[LibraryLoan]:
+        result = []
+        data = self.get_checkouts()
+        for item in data.get('entities', {}).get('checkouts', {}).values():
+            item_id = item.get('checkoutId')
+            bib = data.get('entities', {}).get('bibs', {}).get(item.get('metadataId'), {})
+            medium = bib.get('briefInfo').get('format')
+            title = bib.get('briefInfo').get('title')
+            subtitle = bib.get('briefInfo').get('subtitle')
+            due = datetime.date.fromisoformat(item.get('dueDate'))
+            result.append(
+                LibraryLoan(item_id=item_id, title=title, subtitle=subtitle, medium=medium, due=due, renewable=False)
+            )
+        return result
