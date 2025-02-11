@@ -1,4 +1,4 @@
-__version__ = '2024.1'
+__version__ = '2025.0'
 
 import dataclasses
 import datetime
