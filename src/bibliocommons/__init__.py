@@ -1,5 +1,3 @@
-__version__ = "2025.1"
-
 import dataclasses
 import datetime
 import httpx
