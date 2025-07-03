@@ -12,7 +12,7 @@ license = "MIT"
 dependencies = [
     "cssselect",
     "httpx",
-    "lxml"
+    "lxml",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
