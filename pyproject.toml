@@ -4,7 +4,7 @@ requires = ["uv_build>=0.7.19,<0.8.0"]
 
 [project]
 name = "bibliocommons"
-version = "2025.1"
+version = "2025.2"
 description = "Python client library to interface with BiblioCommons library systems"
 readme = "README.md"
 requires-python = ">=3.9"
