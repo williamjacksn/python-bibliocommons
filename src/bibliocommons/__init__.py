@@ -4,6 +4,10 @@ import httpx
 import lxml.html
 
 
+def _translate_medium(medium: str) -> str:
+    return {"BK": "book", "GRAPHIC_NOVEL": "graphic-novel"}.get(medium, medium)
+
+
 @dataclasses.dataclass
 class LibraryLoan:
     item_id: str
@@ -65,7 +69,7 @@ class BiblioCommonsClient:
             bib = (
                 data.get("entities", {}).get("bibs", {}).get(item.get("metadataId"), {})
             )
-            medium = bib.get("briefInfo").get("format")
+            medium = _translate_medium(bib.get("briefInfo").get("format"))
             title = bib.get("briefInfo").get("title")
             subtitle = bib.get("briefInfo").get("subtitle")
             due = datetime.date.fromisoformat(item.get("dueDate"))
