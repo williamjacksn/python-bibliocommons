@@ -14,6 +14,23 @@ def gen(content: dict, target: str):
     )
 
 
+def gen_dependabot():
+    target = ".github/dependabot.yaml"
+    content = {
+        "version": 2,
+        "updates": [
+            {
+                "package-ecosystem": e,
+                "allow": [{"dependency-type": "all"}],
+                "directory": "/",
+                "schedule": {"interval": "daily"},
+            }
+            for e in ["github-actions", "uv"]
+        ],
+    }
+    gen(content, target)
+
+
 def gen_publish_workflow():
     target = ".github/workflows/publish.yaml"
     content = {
@@ -73,6 +90,7 @@ def gen_ruff_workflow():
 
 
 def main():
+    gen_dependabot()
     gen_publish_workflow()
     gen_ruff_workflow()
 
