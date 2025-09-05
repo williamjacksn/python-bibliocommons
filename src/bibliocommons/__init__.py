@@ -6,7 +6,12 @@ import lxml.html
 
 
 def _translate_medium(medium: str) -> str:
-    return {"BK": "book", "GRAPHIC_NOVEL": "graphic-novel"}.get(medium, medium)
+    return {
+        "BK": "book",
+        "EAUDIOBOOK": "e-audiobook",
+        "EBOOK": "e-book",
+        "GRAPHIC_NOVEL": "graphic-novel",
+    }.get(medium, medium)
 
 
 @dataclasses.dataclass
