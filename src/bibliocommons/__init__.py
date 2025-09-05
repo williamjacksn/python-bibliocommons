@@ -1,5 +1,6 @@
 import dataclasses
 import datetime
+
 import httpx
 import lxml.html
 
