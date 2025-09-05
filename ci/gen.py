@@ -41,8 +41,40 @@ def gen_publish_workflow():
     gen(content, target)
 
 
+def gen_ruff_workflow():
+    target = ".github/workflows/ruff.yaml"
+    content = {
+        "name": "Ruff",
+        "on": {"pull_request": {"branches": ["main"]}, "push": {"branches": ["main"]}},
+        "permissions": {"contents": "read"},
+        "env": {
+            "description": f"This workflow ({target}) was generated from {THIS_FILE}"
+        },
+        "jobs": {
+            "ruff-check": {
+                "name": "Run ruff check",
+                "runs-on": "ubuntu-latest",
+                "steps": [
+                    ACTIONS_CHECKOUT,
+                    {"name": "Run ruff check", "run": "sh ci/ruff-check.sh"},
+                ],
+            },
+            "ruff-format": {
+                "name": "Run ruff format",
+                "runs-on": "ubuntu-latest",
+                "steps": [
+                    ACTIONS_CHECKOUT,
+                    {"name": "Run ruff format", "run": "sh ci/ruff-format.sh"},
+                ],
+            },
+        },
+    }
+    gen(content, target)
+
+
 def main():
     gen_publish_workflow()
+    gen_ruff_workflow()
 
 
 if __name__ == "__main__":
