@@ -43,7 +43,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "ruff", specifier = ">=0.12.12" },
-    { name = "uv-build", specifier = ">=0.8.15" },
+    { name = "uv-build", specifier = ">=0.8.24" },
 ]
 
 [[package]]

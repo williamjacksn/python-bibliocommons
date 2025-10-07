@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "uv_build"
-requires = ["uv_build>=0.8.15,<0.9.0"]
+requires = ["uv_build>=0.8.24,<0.9.0"]
 
 [project]
 name = "bibliocommons"
@@ -31,7 +31,7 @@ email = "william@subtlecoolness.com"
 [dependency-groups]
 dev = [
     "ruff>=0.12.12",
-    "uv-build>=0.8.15",
+    "uv-build>=0.8.24",
 ]
 
 [tool.ruff.lint]
