@@ -27,11 +27,11 @@ class LibraryLoan:
 class BiblioCommonsClient:
     account_id: int
 
-    def __init__(self, library_subdomain: str):
+    def __init__(self, library_subdomain: str) -> None:
         self.library_subdomain = library_subdomain
         self.httpx_client = httpx.Client()
 
-    def authenticate(self, username: str, password: str):
+    def authenticate(self, username: str, password: str) -> None:
         login_url = f"https://{self.library_subdomain}.bibliocommons.com/user/login"
         login_params = dict(destination="x")
         login_page = self.httpx_client.get(login_url, params=login_params)
