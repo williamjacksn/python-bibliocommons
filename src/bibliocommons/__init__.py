@@ -48,8 +48,8 @@ class BiblioCommonsClient:
             login_url, data=data, follow_redirects=True
         )
         login_action.raise_for_status()
-        access_token = self.httpx_client.cookies.get("bc_access_token")
-        session_id = self.httpx_client.cookies.get("session_id")
+        access_token = self.httpx_client.cookies["bc_access_token"]
+        session_id = self.httpx_client.cookies["session_id"]
         self.httpx_client.headers.update(
             {
                 "X-Access-Token": access_token,
