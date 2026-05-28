@@ -19,7 +19,7 @@ wheels = [
 
 [[package]]
 name = "bibliocommons"
-version = "2025.3"
+version = "2026.0"
 source = { editable = "." }
 dependencies = [
     { name = "cssselect" },
