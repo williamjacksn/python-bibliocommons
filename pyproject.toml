@@ -30,10 +30,15 @@ email = "william@subtlecoolness.com"
 
 [dependency-groups]
 dev = [
+    "pytest>=8.0",
     "ruff>=0.14.0",
     "ty>=0.0.40",
     "uv-build>=0.9.13",
+    "vcrpy>=7.0",
 ]
 
 [tool.ruff.lint]
 select = ["ANN", "E", "F", "FURB", "I", "PERF", "RUF", "S", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
