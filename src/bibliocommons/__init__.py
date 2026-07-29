@@ -33,7 +33,7 @@ class BiblioCommonsClient:
 
     def authenticate(self, username: str, password: str) -> None:
         login_url = f"https://{self.library_subdomain}.bibliocommons.com/user/login"
-        login_params = dict(destination="x")
+        login_params = {"destination": "x"}
         login_page = self.httpx_client.get(login_url, params=login_params)
         login_page.raise_for_status()
         login_doc = lxml.html.document_fromstring(login_page.content)
@@ -60,7 +60,7 @@ class BiblioCommonsClient:
 
     def get_checkouts(self) -> dict:
         checkouts_url = f"https://gateway.bibliocommons.com/v2/libraries/{self.library_subdomain}/checkouts"
-        params = dict(accountId=self.account_id)
+        params = {"accountId": self.account_id}
         checkouts = self.httpx_client.get(checkouts_url, params=params)
         checkouts.raise_for_status()
         response = checkouts.json()
