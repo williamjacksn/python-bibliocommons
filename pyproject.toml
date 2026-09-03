@@ -1,7 +1,3 @@
-[build-system]
-build-backend = "uv_build"
-requires = ["uv-build>=0.9.13,<0.13.0"]
-
 [project]
 name = "bibliocommons"
 version = "2026.0"
@@ -28,12 +24,16 @@ email = "william@subtlecoolness.com"
 "Changes" = "https://github.com/williamjacksn/python-bibliocommons/releases"
 "Issues" = "https://github.com/williamjacksn/python-bibliocommons/issues"
 
+[build-system]
+build-backend = "uv_build"
+requires = ["uv-build>=0.9.13,<0.13.0"]
+
 [dependency-groups]
 dev = [
-    "ruff>=0.14.0",
+    "ruff>=0.16.5",
     "ty>=0.0.40",
     "uv-build>=0.9.13",
 ]
 
 [tool.ruff.lint]
-extend-select = ["ANN", "Q", "RSE"]
+extend-select = ["ANN", "E", "F", "FURB", "I", "PERF", "Q", "RSE", "RUF", "S", "UP"]
