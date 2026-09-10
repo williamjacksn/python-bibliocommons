@@ -30,10 +30,15 @@ requires = ["uv-build>=0.9.13,<0.13.0"]
 
 [dependency-groups]
 dev = [
+    "pytest>=8.0",
     "ruff>=0.16.5",
     "ty>=0.0.40",
     "uv-build>=0.9.13",
+    "vcrpy>=7.0",
 ]
 
 [tool.ruff.lint]
 extend-select = ["ANN", "E", "F", "FURB", "I", "PERF", "Q", "RSE", "RUF", "S", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
