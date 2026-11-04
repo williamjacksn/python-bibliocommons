@@ -1,5 +1,5 @@
 import dataclasses
-import datetime
+import datetime as dt
 
 import httpx
 import lxml.html
@@ -20,7 +20,7 @@ class LibraryLoan:
     title: str
     subtitle: str
     medium: str
-    due: datetime.date
+    due: dt.date
     renewable: bool
 
 
@@ -78,7 +78,7 @@ class BiblioCommonsClient:
             medium = _translate_medium(bib.get("briefInfo").get("format"))
             title = bib.get("briefInfo").get("title")
             subtitle = bib.get("briefInfo").get("subtitle")
-            due = datetime.date.fromisoformat(item.get("dueDate"))
+            due = dt.date.fromisoformat(item.get("dueDate"))
             result.append(
                 LibraryLoan(
                     item_id=item_id,

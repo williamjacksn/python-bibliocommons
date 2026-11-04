@@ -30,10 +30,10 @@ requires = ["uv-build>=0.13.7,<0.14.0"]
 
 [dependency-groups]
 dev = [
-    "ruff>=0.16.5",
+    "ruff>=0.17.3",
     "ty>=0.0.40",
     "uv-build>=0.13.7",
 ]
 
 [tool.ruff.lint]
-extend-select = ["ANN", "E", "F", "FURB", "I", "PERF", "Q", "RSE", "RUF", "S", "UP"]
+extend-select = ["ANN", "DTZ", "E", "F", "FURB", "I", "ICN", "PERF", "Q", "RSE", "RUF", "S", "UP"]
